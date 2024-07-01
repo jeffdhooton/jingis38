@@ -12,38 +12,66 @@ points:
         outer:
           rows:
             bottom.skip: true
+          key:
+            column_net: P20
         pinky:
-          key.splay: -0.25ky
-          key.stagger: 0.5ky
-          key.origin: [-6, -10]
+          key:
+            splay: -0.25ky
+            stagger: 0.5ky
+            origin: [-6, -10]
+            column_net: P19
         ring:
-          key.splay: -2
-          key.origin: [-12, -ky]
-          key.stagger: 0.75ky
+          key:
+            splay: -2
+            origin: [-12, -ky]
+            stagger: 0.75ky
+            column_net: p18
         middle:
-          key.splay: -3
-          key.stagger: 5
+          key:
+            splay: -3
+            stagger: 5
+            column_net: P14
         index:
-          key.stagger: -6
+          key:
+            stagger: -6
+            column_net: P4
         inner:
-          key.stagger: -3
-          key.splay: -3
+          key:
+            stagger: -3
+            splay: -3
+            column_net: P3
       rows:
         bottom:
+          row_net: P16
+          mirror:
+            row_net: P8
         home:
+          row_net: P15
+          mirror:
+            row_net: P6
         top:
+          row_net: P21
+          mirror:
+            row_net: P1
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
         shift: [0, -21]
       columns:
         near:
+          key:
+            column_net: P4
         home:
-          key.spread: py
-          key.splay: -20
-          key.origin: [-11.75, -9]
+          key:
+            spread: py
+            splay: -20
+            origin: [-11.75, -9]
+            column_net: P3
       rows:
         thumb:
+          row_net: P10
+          mirror:
+            row_net: P9
   rotate: -py
   mirror: &mirror
     ref: matrix_inner_bottom
@@ -134,6 +162,15 @@ pcbs:
           ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
           shift: [-6, -1.375py]
           rotate: 90
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where: 
+          ref.aggregate.parts: [matrix_inner_bottom, mirror_matrix_inner_bottom]
+          shift: [0, 2]
+          rotate: -90
       
       
 

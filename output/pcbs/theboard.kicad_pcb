@@ -1,12 +1,12 @@
 
-            
+
 (kicad_pcb (version 20171130) (host pcbnew 5.1.6)
 
   (page A3)
   (title_block
-    (title theboard)
-    (rev v1.0.0)
-    (company Unknown)
+    (title "theboard")
+    (rev "v1.0.0")
+    (company "Unknown")
   )
 
   (general
@@ -92,7 +92,7 @@
       (outputdirectory ""))
   )
 
-            (net 0 "")
+  (net 0 "")
 (net 1 "P20")
 (net 2 "outer_home")
 (net 3 "outer_top")
@@ -154,7 +154,7 @@
 (net 59 "P2")
 (net 60 "P5")
 (net 61 "P7")
-            
+
   (net_class Default "This is the default net class."
     (clearance 0.2)
     (trace_width 0.25)
@@ -226,7 +226,7 @@
 (add_net "P7")
   )
 
-            
+  
         
       (module MX (layer F.Cu) (tedit 5DD4F656)
       (at 2.4799976 -18.8374523 -7.5)
@@ -3473,7 +3473,7 @@
     )
     
     
-            (gr_line (start 162.13704900000002 53.6871761) (end 106.29730740000001 53.6871761) (angle 90) (layer Edge.Cuts) (width 0.15))
+  (gr_line (start 162.13704900000002 53.6871761) (end 106.29730740000001 53.6871761) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 106.29730740000001 53.6871761) (end 93.13887749999999 41.2894376) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 93.13887749999999 41.2894376) (end -14.3495682 -5.9236723) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start -14.3495682 -5.9236723) (end -8.6064158 -49.5472462) (angle 90) (layer Edge.Cuts) (width 0.15))
@@ -3487,7 +3487,6 @@
 (gr_line (start 277.04077220000005 -49.5472462) (end 282.78392460000003 -5.9236723) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 282.78392460000003 -5.9236723) (end 175.29547890000003 41.2894376) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 175.29547890000003 41.2894376) (end 162.13704900000002 53.6871761) (angle 90) (layer Edge.Cuts) (width 0.15))
-            
+
 )
 
-        
