@@ -45,9 +45,9 @@ points:
       rows:
         thumb:
   rotate: -py
-  mirror:
-    ref: matrix_pinky_home
-    distance: 11kx
+  mirror: &mirror
+    ref: matrix_inner_bottom
+    distance: 4kx
 outlines:
   raw:
     - what: rectangle
@@ -63,29 +63,77 @@ outlines:
       points:
         - ref: thumbfan_home_thumb
           shift: [0.5px, -0.75py]
+        - ref: thumbfan_near_thumb
+          shift: [0.5px, -0.75py]
         - ref: matrix_outer_home
-          shift: [-0.75px, -py]
+          shift: [-0.75px, -0.75py]
         - ref: matrix_outer_top
           shift: [-0.75px, 0.5py]
         - ref: matrix_ring_top
-          shift: [-0.5px, py]
+          shift: [-0.5px, 0.6py]
         - ref: matrix_middle_top
-          shift: [-0.5px, py]
+          shift: [-0.5px, 0.6py]
         - ref: matrix_inner_top
-          shift: [0.5px, 1.75py]
+          shift: [0.5px, py]
         - ref: mirror_matrix_inner_top
-          shift: [0.5px, 1.75py]
+          shift: [0.5px, py]
         - ref: mirror_matrix_middle_top
-          shift: [-0.5px, py]
+          shift: [-0.5px, 0.6py]
         - ref: mirror_matrix_ring_top
-          shift: [-0.5px, py]
+          shift: [-0.5px, 0.6py]
         - ref: mirror_matrix_outer_top
           shift: [-0.75px, 0.5py]
         - ref: mirror_matrix_outer_home
-          shift: [-0.75px, -py]
+          shift: [-0.75px, -0.75py]
+        - ref: mirror_thumbfan_near_thumb
+          shift: [0.5px, -0.75py]
         - ref: mirror_thumbfan_home_thumb
           shift: [0.5px, -0.75py]
   combo:
     - name: board
     - operation: subtract
       name: keys
+pcbs:
+  theboard:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      mx_hotswap:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0,-5]
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: [matrix_inner_top, mirror_matrix_inner_top]
+          shift: [1.3px, 0]
+          rotate: -250
+      oled:
+        what: oled
+        params:
+          side: "F"
+          SDA: P2
+          SCL: P3
+        where:
+          ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
+          shift: [-6, -1.375py]
+          rotate: 90
+      
+      
+
