@@ -1,0 +1,50 @@
+units:
+  kx: u
+  ky: u
+  px: kx + 2
+  py: ky + 2
+points:
+  zones:
+    matrix:
+      anchor:
+        rotate: 12.5
+      columns:
+        outer:
+          rows:
+            bottom.skip: true
+        pinky:
+          key.splay: -0.25ky
+          key.stagger: 0.5ky
+          key.origin: [-6, -10]
+        ring:
+          key.splay: -2
+          key.origin: [-12, -ky]
+          key.stagger: 0.75ky
+        middle:
+          key.splay: -3
+          key.stagger: 5
+        index:
+          key.stagger: -6
+        inner:
+          key.stagger: -3
+          key.splay: -3
+      rows:
+        bottom:
+        home:
+        top:
+    thumbfan:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [0, -21]
+      columns:
+        near:
+        home:
+          key.spread: py
+          key.splay: -20
+          key.origin: [-11.75, -9]
+      rows:
+        thumb:
+  rotate: -py
+  mirror:
+    ref: matrix_pinky_home
+    distance: 12kx
