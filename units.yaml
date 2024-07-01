@@ -11,5 +11,5 @@ $default_padding: 19
 $default_autobind: 10
 kx: 19
 ky: 19
-px: 21
-py: 21
+px: 20
+py: 20

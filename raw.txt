@@ -1,8 +1,8 @@
 units:
   kx: u
   ky: u
-  px: kx + 2
-  py: ky + 2
+  px: kx + 1
+  py: ky + 1
 points:
   zones:
     matrix:
@@ -47,4 +47,45 @@ points:
   rotate: -py
   mirror:
     ref: matrix_pinky_home
-    distance: 12kx
+    distance: 11kx
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [kx, ky]
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5, ky-0.5]
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: thumbfan_home_thumb
+          shift: [0.5px, -0.75py]
+        - ref: matrix_outer_home
+          shift: [-0.75px, -py]
+        - ref: matrix_outer_top
+          shift: [-0.75px, 0.5py]
+        - ref: matrix_ring_top
+          shift: [-0.5px, py]
+        - ref: matrix_middle_top
+          shift: [-0.5px, py]
+        - ref: matrix_inner_top
+          shift: [0.5px, 1.75py]
+        - ref: mirror_matrix_inner_top
+          shift: [0.5px, 1.75py]
+        - ref: mirror_matrix_middle_top
+          shift: [-0.5px, py]
+        - ref: mirror_matrix_ring_top
+          shift: [-0.5px, py]
+        - ref: mirror_matrix_outer_top
+          shift: [-0.75px, 0.5py]
+        - ref: mirror_matrix_outer_home
+          shift: [-0.75px, -py]
+        - ref: mirror_thumbfan_home_thumb
+          shift: [0.5px, -0.75py]
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
