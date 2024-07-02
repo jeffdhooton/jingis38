@@ -1,0 +1,404 @@
+units:
+  # Proxy spacing vars (mx)
+  kx: u
+  ky: u
+  # Padding vars 
+  px: kx + 2
+  py: ky + 2
+  # Double padding vars
+  dpx: px + 8
+  dpy: py + 8
+  screwSize: 1.5
+  standoffSize: 2.5
+points:
+  zones:
+    matrix:
+      anchor:
+        rotate: 12.5
+      columns:
+        outer:
+          rows:
+            bottom.skip: true
+          key:
+            column_net: P20
+        pinky:
+          key:
+            splay: -0.25ky
+            stagger: 0.5ky
+            origin: [-6, -10]
+            column_net: P19
+        ring:
+          key:
+            splay: -2
+            origin: [-12, -ky]
+            stagger: 0.75ky
+            column_net: p18
+        middle:
+          key:
+            splay: -3
+            stagger: 5
+            column_net: P14
+        index:
+          key:
+            stagger: -6
+            column_net: P4
+        inner:
+          key:
+            stagger: -3
+            splay: -3
+            column_net: P3
+      rows:
+        bottom:
+          row_net: P16
+          mirror:
+            row_net: P8
+        home:
+          row_net: P15
+          mirror:
+            row_net: P6
+        top:
+          row_net: P21
+          mirror:
+            row_net: P1
+    thumbfan:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [0, -21]
+      columns:
+        near:
+          key:
+            column_net: P4
+        home:
+          key:
+            spread: py
+            splay: -20
+            origin: [-11.75, -9]
+            column_net: P3
+      rows:
+        thumb:
+          row_net: P10
+          mirror:
+            row_net: P9
+  rotate: -py
+  mirror: &mirror
+    ref: matrix_inner_bottom
+    distance: 4kx
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      size: [kx, ky]
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5, ky-0.5]
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: thumbfan_home_thumb
+          shift: [0.5px, -0.75py]
+        - ref: thumbfan_near_thumb
+          shift: [0.5px, -0.75py]
+        - ref: matrix_outer_home
+          shift: [-0.75px, -0.75py]
+        - ref: matrix_outer_top
+          shift: [-0.75px, 0.5py]
+        - ref: matrix_ring_top
+          shift: [-0.5px, 0.6py]
+        - ref: matrix_middle_top
+          shift: [-0.5px, 0.6py]
+        - ref: matrix_inner_top
+          shift: [0.5px, py]
+        - ref: mirror_matrix_inner_top
+          shift: [0.5px, py]
+        - ref: mirror_matrix_middle_top
+          shift: [-0.5px, 0.6py]
+        - ref: mirror_matrix_ring_top
+          shift: [-0.5px, 0.6py]
+        - ref: mirror_matrix_outer_top
+          shift: [-0.75px, 0.5py]
+        - ref: mirror_matrix_outer_home
+          shift: [-0.75px, -0.75py]
+        - ref: mirror_thumbfan_near_thumb
+          shift: [0.5px, -0.75py]
+        - ref: mirror_thumbfan_home_thumb
+          shift: [0.5px, -0.75py]
+  xlBoard:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: thumbfan_home_thumb
+          shift: [0.5dpx, -0.75dpy]
+        - ref: thumbfan_near_thumb
+          shift: [0.5dpx, -0.75dpy]
+        - ref: matrix_outer_home
+          shift: [-0.75dpx, -0.75dpy]
+        - ref: matrix_outer_top
+          shift: [-0.75dpx, 0.5dpy]
+        - ref: matrix_ring_top
+          shift: [-0.5dpx, 0.6dpy]
+        - ref: matrix_middle_top
+          shift: [-0.5dpx, 0.6dpy]
+        - ref: matrix_inner_top
+          shift: [0.5dpx, dpy]
+        - ref: mirror_matrix_inner_top
+          shift: [0.5dpx, dpy]
+        - ref: mirror_matrix_middle_top
+          shift: [-0.5dpx, 0.6dpy]
+        - ref: mirror_matrix_ring_top
+          shift: [-0.5dpx, 0.6dpy]
+        - ref: mirror_matrix_outer_top
+          shift: [-0.75dpx, 0.5dpy]
+        - ref: mirror_matrix_outer_home
+          shift: [-0.75dpx, -0.75dpy]
+        - ref: mirror_thumbfan_near_thumb
+          shift: [0.5dpx, -0.75dpy]
+        - ref: mirror_thumbfan_home_thumb
+          shift: [0.5dpx, -0.75dpy]
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+  mounting:
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_outer_top]
+        shift: [0.4kx, 0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_outer_top]
+        shift: [0.4kx, 0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_outer_home]
+        shift: [0.25kx, -0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_outer_home]
+        shift: [0.25kx, -0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_index_bottom]
+        shift: [0.1kx, -0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_index_bottom]
+        shift: [0.1kx, -0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_inner_top]
+        shift: [0.25kx, 0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_inner_top]
+        shift: [0.25kx, 0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [thumbfan_home_thumb]
+        shift: [-0.25kx, 0.75ky]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_thumbfan_home_thumb]
+        shift: [-0.25kx, 0.75ky]
+  standoff:
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_outer_top]
+        shift: [0.4kx, 0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_outer_top]
+        shift: [0.4kx, 0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_outer_home]
+        shift: [0.25kx, -0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_outer_home]
+        shift: [0.25kx, -0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_index_bottom]
+        shift: [0.1kx, -0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_index_bottom]
+        shift: [0.1kx, -0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [matrix_inner_top]
+        shift: [0.25kx, 0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_matrix_inner_top]
+        shift: [0.25kx, 0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [thumbfan_home_thumb]
+        shift: [-0.25kx, 0.75ky]
+    - what: circle
+      radius: standoffSize
+      where:
+        ref: [mirror_thumbfan_home_thumb]
+        shift: [-0.25kx, 0.75ky]
+pcbs:
+  theboard:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      mx_hotswap:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0,-5]
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: [matrix_inner_top, mirror_matrix_inner_top]
+          shift: [1.3px, 0]
+          rotate: -250
+      oled:
+        what: oled
+        params:
+          side: "F"
+          SDA: P2
+          SCL: P3
+        where:
+          ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
+          shift: [-6, -1.375py]
+          rotate: 90
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where: 
+          ref.aggregate.parts: [matrix_inner_bottom, mirror_matrix_inner_bottom]
+          shift: [0, 2]
+          rotate: -90
+      holeTopLeft:
+        what: mountinghole
+        where:
+          ref: [matrix_outer_top]
+          shift: [0.4kx, 0.75ky]
+      holeTopRight:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_outer_top]
+          shift: [0.4kx, 0.75ky]
+      holeBottomLeft:
+        what: mountinghole
+        where:
+          ref: [matrix_outer_home]
+          shift: [0.25kx, -0.75ky]
+      holeBottomRight:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_outer_home]
+          shift: [0.25kx, -0.75ky]
+      holeInnerLeft:
+        what: mountinghole
+        where:
+          ref: [matrix_index_bottom]
+          shift: [0.1kx, -0.75ky]
+      holeInnerRight:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_index_bottom]
+          shift: [0.1kx, -0.75ky]
+      holeInnerTopLeft:
+        what: mountinghole
+        where:
+          ref: [matrix_inner_top]
+          shift: [0.25kx, 0.75ky]
+      holeInnerTopRight:
+        what: mountinghole
+        where:
+          ref: [mirror_matrix_inner_top]
+          shift: [0.25kx, 0.75ky]
+      holeInnerBottomLeft:
+        what: mountinghole
+        where:
+          ref: [thumbfan_home_thumb]
+          shift: [-0.25kx, 0.75ky]
+      holeInnerBottomRight:
+        what: mountinghole
+        where:
+          ref: [mirror_thumbfan_home_thumb]
+          shift: [-0.25kx, 0.75ky]
+cases:
+  bottom:
+    - name: board
+      extrude: 1
+  xlBottom:
+    - name: xlBoard
+      extrude: 1
+  _outerWall:
+    - name: xlBoard
+      extrude: 5.6 
+  _innerWall:
+    - name: board
+      extrude:  5.6
+  wall:
+    - what: case
+      name: _outerWall
+      operation: add
+    - what: case
+      name: _innerWall
+      operation: subtract
+  _holes:
+    - name: mounting
+      extrude: 4
+  _standoffs:
+    - name: standoff
+      extrude: 4
+  case:
+    - what: case
+      name: _standoffs
+      operation: add
+    - what: case
+      name: _holes
+      operation: subtract
+    - what: case
+      name: xlBottom
+      operation: add
+    - what: case
+      name: wall
+      operation: add
+
