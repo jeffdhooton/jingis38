@@ -365,10 +365,10 @@ pcbs:
 cases:
   bottom:
     - name: board
-      extrude: 1
+      extrude: 3
   xlBottom:
     - name: xlBoard
-      extrude: 1
+      extrude: 3
   _outerWall:
     - name: xlBoard
       extrude: 5.6 

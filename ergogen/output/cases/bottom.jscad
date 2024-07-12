@@ -1,6 +1,6 @@
-function board_extrude_3_outline_fn(){
+function board_extrude_1_outline_fn(){
     return new CSG.Path2D([[162.1059994,-56.7901339],[106.1575658,-56.7901339]]).appendPoint([92.5982673,-43.7888715]).appendPoint([-15.0966193,5.5422998]).appendPoint([-8.4082435,50.2952676]).appendPoint([46.3946874,66.4692567]).appendPoint([68.7359379,66.0585296]).appendPoint([127.3017095,45.450882]).appendPoint([140.9618557,45.450882]).appendPoint([199.5276273,66.0585296]).appendPoint([221.8688778,66.4692567]).appendPoint([276.6718087,50.2952676]).appendPoint([283.3601845,5.5422998]).appendPoint([175.6652979,-43.7888715]).appendPoint([162.1059994,-56.7901339]).close().innerToCAG()
-.extrude({ offset: [0, 0, 3] });
+.extrude({ offset: [0, 0, 1] });
 }
 
 
@@ -10,7 +10,7 @@ function board_extrude_3_outline_fn(){
                     
 
                 // creating part 0 of case bottom
-                let bottom__part_0 = board_extrude_3_outline_fn();
+                let bottom__part_0 = board_extrude_1_outline_fn();
 
                 // make sure that rotations are relative
                 let bottom__part_0_bounds = bottom__part_0.getBounds();
