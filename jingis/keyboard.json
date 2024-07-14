@@ -1,27 +1,18 @@
 {
   "manufacturer": "Jeff Hooton",
-  "keyboard_name": "Jingis",
-  "maintainer": "jeffdhooton",
+  "keyboard": "jingis38",
+  "keymap": "default",
   "bootloader": "caterina",
-  "features": {
-    "bootmagic": true,
-    "command": false,
-    "console": false,
-    "extrakey": true,
-    "mousekey": true,
-    "nkro": true
-  },
-  "processor": "atmega32u4",
   "usb": {
     "device_version": "1.0.0",
     "pid": "0x0000",
     "vid": "0xFEED"
   },
-  "matrix_pins": {
-    "rows": ["F4", "B1", "B2", "B6", "D3", "D7", "B4", "B5"],
-    "cols": ["F5", "F6", "F7", "D4", "D0"]
-  },
   "diode_direction": "COL2ROW",
+  "matrix_pins": {
+    "rows": ["F4", "B1", "B2", "B6", "B5", "B4", "D7", "D3"],
+    "cols": ["F5", "F6", "F7", "B3", "D4", "D0"]
+  },
   "layouts": {
     "LAYOUT": {
       "layout": [
